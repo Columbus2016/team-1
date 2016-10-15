@@ -1,0 +1,2 @@
+class Cancer < ApplicationRecord
+end
