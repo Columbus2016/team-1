@@ -19,6 +19,19 @@ class User < ApplicationRecord
   enum authority: [:user, :researcher, :moderator, :admin]
 
   scope :visible, ->{ where(invisible: false) }
-  scope :invisible, -> { where(invisible: true) } 
+  scope :invisible, -> { where(invisible: true) }
 
+  attr_accessor :location_lat
+  attr_accessor :location_long
+
+
+  before_save :convert_location
+
+
+  protected
+
+  def convert_location
+    return unless location_lat && location_long
+    self.location = RGeo::ActiveRecord::SpatialFactoryStore.instance.default.point(location_long, location_lat)
+  end
 end
