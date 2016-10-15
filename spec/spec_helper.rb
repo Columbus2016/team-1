@@ -1,6 +1,5 @@
 require 'factory_girl_rails'
 require 'pundit/rspec'
-
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
 end

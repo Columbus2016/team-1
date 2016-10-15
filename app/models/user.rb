@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_one :cancer,
     through: :diagnosis
 
+  has_many :shouts
+
   accepts_nested_attributes_for :diagnosis
 
   enum gender: [:male, :female, :other]

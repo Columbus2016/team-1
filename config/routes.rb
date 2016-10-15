@@ -5,6 +5,6 @@ Rails.application.routes.draw do
 
   resources :cancers
 
-  resources :posts
+  resources :shouts
 
 end
