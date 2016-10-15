@@ -10,14 +10,21 @@ RSpec.describe CommentsController, type: :controller do
 
     describe "post #create" do
       let(:comment_params) do
-        attributes_for(:comment).merge(shout_id: shout.id)
+        {comment: attributes_for(:comment).merge(shout_id: shout.id)}
       end
 
       it "creates a comment on the post" do
         expect do
           post :create,
             params: comment_params
-        end.to change{@post.comments.reload.count}.by(1)
+        end.to change{Comment.count}.by(1)
+      end
+
+      it "creates a comment on the post" do
+        expect do
+          post :create,
+            params: comment_params
+        end.to change{shout.comments.reload.count}.by(1)
       end
 
       it "creates a comment for the user" do
