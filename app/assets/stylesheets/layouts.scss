@@ -1,0 +1,32 @@
+$header-height:  40px;
+$footer-height: 60px;
+#main-header {
+  h1 {
+    color: white;
+    font-size: 15px;
+  }
+  height: $header-height;
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: black;
+  overflow: hidden;
+}
+
+#main-footer {
+  position: fixed;
+  height: $footer-height;
+  width: 100vw;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: pink;
+  overflow: hidden;
+}
+
+#masthead {
+  margin-top: $header-height;
+  height: calc(100vh - #{$header-height} - #{$footer-height});
+}

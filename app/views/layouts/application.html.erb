@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CodeForGood</title>
+    <meta charset="UTF-8">
+    <title><%= content_for?(:title) ? content_for(:title) + " - Komenity" : "Komenity" %></title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <header id="main-header">
+      <%= render "layouts/top_bar" %>
+    </header>
+
+    <div id="masthead">
+      <%= yield %>
+    </div>
+
+    <footer id="main-footer">
+      <%= render "layouts/bottom_bar" %>
+    </footer>
   </body>
 </html>
