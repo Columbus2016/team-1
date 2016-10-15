@@ -1,69 +1,68 @@
-<h2>Sign up</h2>
+<div class="signup-form">
+  <h2 class="center-header">Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-<div class="forminner">
-  <div class="row">
-    <form role="form">
-      <div class="col-lg-6">
-        <div class="form-group">
-          <%= f.label :email %>
-          <%= f.email_field :email, autofocus: true %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :handle %>
-          <%= f.text_field :handle %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :gender %>
-          <%= f.select :gender, User.genders.keys.map{|k| [k, k]} %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :birthdate %>
-          <%= f.date_select :birthdate, {order: [:month, :day, :year], prompt: { day: 'Select day', month: 'Select month', year: 'Select year' }, start_year: Date.today.year, end_year: Date.today.year - 100} %>
-        </div>
-
-        <div class="form-group">
-          <label for="ignoreme">Zip Code</label>
-          <input name="ignoreme" type="text" id="geolocation-input">
-
-        </div>
-
-        <div id="map"></div>
-
-        <%# <div class="form-group">
-        <%#  <%= f.label :zipcode %>
-        <%#  <%= f.text_field :zipcode %>
-        <%# </div> %>
-
-        <div class="form-group">
-          <%= f.label :password %>
-          <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-          <% end %><br />
-          <%= f.password_field :password, autocomplete: "off" %>
-        </div>
-
-        <%= f.hidden_field :location_lat, {id: "location_lat"} %>
-        <%= f.hidden_field :location_long, {id: "location_long"} %>
-
-
-        <div class="form-group">
-          <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "off" %>
-        </div>
-
-
-        <div class="actions">
-          <%= f.submit "Sign up" %>
-        </div>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+    <div class="forminner">
+      <div class="field-container">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true %>
       </div>
-    </form>
-  </div>
-</div>
 
-<% end %>
-<%= render "devise/shared/links" %>
+      <div class="field-container">
+        <%= f.label :handle %>
+        <%= f.text_field :handle %>
+      </div>
+
+      <div class="field-container">
+        <%= f.label :gender %>
+        <%= f.select :gender, User.genders.keys.map{|k| [k, k]} %>
+      </div>
+
+      <div class="field-container">
+        <%= f.label :birthdate %>
+        <%= f.date_select :birthdate, 
+          {order: [:month, :day, :year], 
+           prompt: { day: 'Select day', month: 'Select month', year: 'Select year' }, 
+           start_year: Date.today.year, 
+           end_year: Date.today.year - 100} %>
+       </div>
+
+       <div class="field-container">
+         <label for="ignoreme">Zip Code</label>
+         <input name="ignoreme" type="text" id="geolocation-input">
+       </div>
+
+
+       <%# <div class="field-container">
+         <%#  <%= f.label :zipcode %>
+         <%#  <%= f.text_field :zipcode %>
+         <%# </div> %>
+
+       <div class="field-container">
+         <%= f.label :password %>
+         <% if @minimum_password_length %>
+           <em>(<%= @minimum_password_length %> characters minimum)</em>
+         <% end %><br />
+         <%= f.password_field :password, autocomplete: "off" %>
+       </div>
+
+       <%= f.hidden_field :location_lat, {id: "location_lat"} %>
+       <%= f.hidden_field :location_long, {id: "location_long"} %>
+
+
+       <div class="field-container">
+         <%= f.label :password_confirmation %><br />
+         <%= f.password_field :password_confirmation, autocomplete: "off" %>
+       </div>
+
+
+       <div class="actions">
+         <%= f.submit "Sign up" %>
+       </div>
+     </div>
+
+   <% end %>
+ </div>
+ <%= render "devise/shared/links" %>
+

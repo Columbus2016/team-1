@@ -19,5 +19,49 @@
 .user-shouts {
   list-style-type: none;
   display: flex;
+  margin: 0;
+  padding: 20px;
   flex-direction: column;
+}
+
+.user-shout {
+  border: 1px solid #333;
+  border-radius: 3px;
+  margin: 5px;
+  padding: 10px;
+}
+
+.user-edit {
+  margin: auto;
+  width: 700px;
+
+  .faded-description {
+    color: #666;
+  }
+}
+
+.user-diagnosis-edit {
+  h4 {
+    margin: 0;
+  }
+  background-color: #eee;
+  padding: 10px;
+  margin: 20px 0;
+}
+
+.signup-form {
+  max-width: 700px;
+  margin: auto;
+}
+
+.login-form {
+  max-width: 700px;
+  margin: auto;
+}
+
+.devise-links {
+  max-width: 700px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
 }
