@@ -28,28 +28,19 @@ $footer-height: 60px;
 }
 
 #main-header {
-  .container {
-    display: flex;
-    div {
-        flex-grow: 1;
-    }
-    .right {
-        position: absolute;
-        color: white;
-        list-style-type: none;
-        margin: auto;
-        right: 0;
-    }  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-    h1 {
-      color: white;
-      font-size: 25px;
-      vertical-align: middle;
-      position: absolute;
-      left: 0;
-      
-    }
+
+  h1 {
+
+    margin: none;
+    color: white;
+    font-size: 25px;
+    vertical-align: middle;
   }
+
   height: $header-height;
   position: fixed;
   width: 100vw;
@@ -58,8 +49,8 @@ $footer-height: 60px;
   left: 0;
   background-color: black;
   overflow: hidden;
-  
 }
+
 #main-footer {
   position: fixed;
   height: $footer-height;

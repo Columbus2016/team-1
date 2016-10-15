@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root to: "users#index"
+
   devise_for :users
 
   resources :users, except: [:create, :new] do
@@ -10,4 +13,6 @@ Rails.application.routes.draw do
   resources :shouts
 
   resources :comments, only: [:create, :edit, :update]
+
+  get "chat_mockup", to: "static_stuff#chat_mockup"
 end
