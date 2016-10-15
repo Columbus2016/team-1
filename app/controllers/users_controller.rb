@@ -17,10 +17,26 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    authorize @user
     @cancers = Cancer.all
   end
 
-  def create
-    puts params.inspect
+  def update
+    @user = User.find(params[:id])
+    authorize @user
+    if @user.update(user_params)
+      redirect_to 'index'
+    else
+      render 'edit', errors: @user.errors
+    end
+  end
+
+  def user_params
+    params.require(:user)
+      .permit(diagnosis_attributes: diagnosis_params)
+  end
+
+  def diagnosis_params
+    [:stage, :cancer_id]
   end
 end

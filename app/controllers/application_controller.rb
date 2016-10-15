@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
   include Pundit
 
+  def after_sign_up_path_for(resource)
+    edit_users_path(resource)
+  end
+
   def configure_permitted_parameters
     devise_parameter_sanitizer
       .permit(:sign_up, keys: [:location_lat, :location_long, :birthdate, :handle, :gender])
