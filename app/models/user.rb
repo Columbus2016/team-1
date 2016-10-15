@@ -28,6 +28,11 @@ class User < ApplicationRecord
   before_save :convert_location
 
   def self.by_filter(params, other)
+    if params[:my_cancer]
+      joins(diagnosis: :cancer)
+        .references(diagnosis: :cancer)
+        .where(diagnoses: {cancer: other.cancer})
+    end
   end
 
   def self.within_distance(point, dist)
