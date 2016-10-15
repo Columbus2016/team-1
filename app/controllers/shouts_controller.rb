@@ -6,7 +6,7 @@ class ShoutsController < ApplicationController
       @shouts = Shout.joins(:user)
         .where(user: User.by_filter(params, current_user))
     else
-      Shout.all
+      @shouts = Shout.all
     end
   end
 
