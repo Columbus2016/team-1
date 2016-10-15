@@ -1,2 +1,16 @@
-<h1>Komenity</h1>
+<div class="container">
+    <h1>Komenity</h1>
+    <div>
+        <% if user_signed_in? %>
+            <li class="right">
+                <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+            </li>
+        <% else %>
+            <li class="right">
+                <%= link_to('Login',new_user_session_path) %>
+            </li>
+        <% end %>
+    </div>
+</div>
+
 

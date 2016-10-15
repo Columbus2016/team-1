@@ -28,9 +28,27 @@ $footer-height: 60px;
 }
 
 #main-header {
-  h1 {
-    color: white;
-    font-size: 15px;
+  .container {
+    display: flex;
+    div {
+        flex-grow: 1;
+    }
+    .right {
+        position: absolute;
+        color: white;
+        list-style-type: none;
+        margin: auto;
+        right: 0;
+    }  
+
+    h1 {
+      color: white;
+      font-size: 25px;
+      vertical-align: middle;
+      position: absolute;
+      left: 0;
+      
+    }
   }
   height: $header-height;
   position: fixed;
@@ -40,8 +58,8 @@ $footer-height: 60px;
   left: 0;
   background-color: black;
   overflow: hidden;
+  
 }
-
 #main-footer {
   position: fixed;
   height: $footer-height;
