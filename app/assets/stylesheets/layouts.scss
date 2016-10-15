@@ -28,6 +28,15 @@ $footer-height: 60px;
 
 #main-header {
 
+  a {
+    color: white;
+
+    &:hover {
+      color: white;
+      text-decoration: none;
+    }
+  }
+
   padding: 0 20px;
   display: flex;
   align-items: center;

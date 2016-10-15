@@ -4,11 +4,17 @@
 
 <h1 class="center-header">Posts</h1>
 
-<%= form_for Shout.new do |f| %>
-  <%= f.label :body %>
-  <%= f.text_area :body %>
+<% if user_signed_in? %>
+  <div class="shout-create-form">
+    <%= form_for Shout.new do |f| %>
+      <div class="field-section textbox-section">
+        <%= f.label :body %>
+        <%= f.text_area :body %>
+      </div>
 
-  <%= f.submit %>
+      <%= f.submit(id: "create-shout-button") %>
+    <% end %>
+  </div>
 <% end %>
 
 

@@ -4,9 +4,10 @@ class ShoutsController < ApplicationController
   def index
     if user_signed_in?
       @shouts = Shout.joins(:user)
+        .includes(:user)
         .where(user: User.visible.by_filter(params, current_user))
     else
-      @shouts = Shout.all
+      @shouts = Shout.all.includes(:user)
     end
   end
 
