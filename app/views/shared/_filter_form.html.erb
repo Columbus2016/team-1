@@ -1,23 +1,26 @@
-<div class="fields-section">
+
+<div class="fields-section filter-section">
   <div>
-    <%= label_tag :age_start %>
-    <%= number_field_tag(:age_start) %>
+    <%= label_tag :minimum_age %>
+    <%= number_field_tag(:age_start, params[:age_start]) %>
   </div>  
   <div>  
-    <%= label_tag :age_end %>
-    <%= number_field_tag(:age_end) %>
+    <%= label_tag :maxim_age %>
+    <%= number_field_tag(:age_end, params[:age_end]) %>
   </div>
   <div>
     <%= label_tag :distance_in_miles %>
-    <%= number_field_tag(:distance_in_miles) %>
+    <%= number_field_tag(:within_miles, params[:within_miles]) %>
   </div>
   <div>
     <%= label_tag(:my_cancer) %>
-    <%= check_box_tag(:my_cancer) %>
+    <%= check_box_tag(:my_cancer,
+                      params[:my_cancer].blank? ? "no" : "yes",
+                      !params[:my_cancer].blank?) %>
   </div>
   <div>
     <%= label_tag(:stage) %>
-    <%= select_tag :stage, options_for_select((1..4).map{|e| [e, e]}) %> 
+    <%= number_field_tag(:stage, params[:stage], max: 4, min: 1, step: 0) %>
   </div>
   <%= submit_tag("Apply Filter") %>
 </div>

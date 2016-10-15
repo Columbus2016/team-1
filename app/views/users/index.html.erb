@@ -1,4 +1,7 @@
 <%= form_tag(users_path, method: :get) do %>
   <%= render 'shared/filter_form' %>
 <% end %>
-<%= render @users %>
+
+<ul class="users-list">
+  <%= render @users %>
+</ul>

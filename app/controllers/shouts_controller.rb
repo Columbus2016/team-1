@@ -2,7 +2,12 @@ class ShoutsController < ApplicationController
   before_action :load_shout, except: [:new, :index, :create]
 
   def index
-    @shouts = Shout.all
+    if user_signed_in?
+      @shouts = Shout.joins(:user)
+        .where(user: User.by_filter(params, current_user))
+    else
+      Shout.all
+    end
   end
 
   def new

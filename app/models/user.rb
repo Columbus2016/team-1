@@ -28,29 +28,31 @@ class User < ApplicationRecord
   before_save :convert_location
 
   def self.by_filter(params, other)
-    filter = self
-    if params[:my_cancer]
+    filter = self.all
+
+    unless params[:my_cancer].blank?
       filter = filter.with_cancer(other.cancer)
     end
 
-    if params[:age_start]
+    unless params[:age_start].blank?
       filter = filter.at_least_age(params[:age_start])
     end
 
-    if params[:age_end]
+    unless params[:age_end].blank?
       filter = filter.at_least_age(params[:age_end])
     end
     
-    if params[:within_distance]
+    unless params[:within_distance].blank?
       filter = filter.within_distance(other.location)
     end
+
+    return filter
   end
 
   def self.with_cancer(cancer)
-    filter = filter.joins(diagnosis: :cancer)
+    joins(diagnosis: :cancer)
         .references(diagnosis: :cancer)
-        .where(diagnoses: {cancer: other.cancer})
-
+      .where(diagnoses: {cancer_id: cancer})
   end
 
   def self.at_least_age(years)
@@ -65,6 +67,12 @@ class User < ApplicationRecord
 
   def self.within_distance(point, dist)
     where("ST_DWithin(location, ?, ?)",point,dist * 1609.34)
+  end
+
+  def self.with_friendship_status_for(other)
+    joins("LEFT OUTER JOIN friendships ON friendships.receiver_id = users.id")
+      .group("users.id, friendships.id")
+      .select("users.*, friendships.id AS friendship_id")
   end
 
   protected
