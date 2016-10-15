@@ -8,4 +8,8 @@ class UserPolicy < ApplicationPolicy
   def update?
     @user == @record
   end
+
+  def friend?
+    ! @user.nil?
+  end
 end

@@ -2,8 +2,23 @@ class UsersController < ApplicationController
   def index
     if user_signed_in?
       @users = User.all.by_filter(params, current_user)
+        .with_friendship_status_for(current_user)
     else
       @users = User.all
+    end
+  end
+
+  # HACK: NO BREAKS
+  def friend
+    @user = User.find(params[:id])
+    authorize @user
+    if Friendship.where(sender: current_user,
+        receiver: @user).count != 0
+      redirect_to action: :index
+    else
+      Friendship.create(sender: current_user,
+                        receiver: @user)
+      redirect_to action: :index
     end
   end
 

@@ -1,6 +1,14 @@
 <div class="user">
-  <h1><%= link_to user.handle, user %></h1>
-  <span class="id">
-    <%= user.id %>
+  <span class="user-bar">
+    <div class="user-id"><%= user.id %></div>
+    <h1><%= link_to user.handle, user %></h1>
+    <div class="userbar-right">
+      <% if current_user && user.friendship_id == nil %>
+        <%= form_tag friend_user_path(user) do %>
+          <%= button_tag("Friend") %>
+        <% end %>
+      <% else %>
+      <% end %>
+    </div>
   </span>
 </div>
