@@ -1,5 +1,4 @@
-<div class="fields-section">
-
+<% if user_signed_in? %>
 <div class="fields-section filter-section">
   <div>
     <%= label_tag :minimum_age %>
@@ -14,7 +13,7 @@
     <%= number_field_tag(:within_miles, params[:within_miles]) %>
   </div>
   <div>
-    <%= label_tag(:my_cancer) %>
+    <%= label_tag(:my_cancer, "Same Cancer") %>
     <%= check_box_tag(:my_cancer,
                       params[:my_cancer].blank? ? "no" : "yes",
                       !params[:my_cancer].blank?) %>
@@ -25,3 +24,4 @@
   </div>
   <%= submit_tag("Apply Filter") %>
 </div>
+<% end %>

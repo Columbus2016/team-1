@@ -1,0 +1,21 @@
+.filter-section {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  padding: 30px;
+  border-radius: 3px;
+  margin: auto;
+  justify-content: space-between;
+  background-color: #e3e3e3;
+
+  div {
+    width: 45%;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.center-header {
+  width: 100%;
+  text-align: center;
+}

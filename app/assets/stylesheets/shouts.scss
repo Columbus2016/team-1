@@ -1,29 +1,43 @@
 .container {
-    display: flex;
+  display: flex;
 }
 
 .shout-item-color-0 {
-    background-color: #ff0066;
+  background-color: #F786B7;
 }
 
 .shout-item-color-1 {
-    background-color: #ff80b3;
+  background-color: #F792BE;
 }
 
 .shout-item-color-2 {
-    background-color: #ffcce0;
+  background-color: #F79EC5;
 }
 
 .shout-item-color-3 {
-    background-color: #ff99a6;
+  background-color: #F7ABCC;
 }
 
 .shout-item {
   width: 100%;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 3px;
+
+  h2 {
+    margin: 0;
+    font-size: 16px;
+  }
+
+  a {
+    color: black;
+  }
 }
 
 .shouts-list {
-display: flex;
-margin: auto;
-max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  max-width: 700px;
+  list-style-type: none;
 }
