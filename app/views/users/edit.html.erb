@@ -1,24 +1,36 @@
-<%= form_for @user do |f| %>
-  <h2>Diagnosis</h2>
-  <%= f.fields_for @user.diagnosis || @user.build_diagnosis do |df| %>
-    <div class="field-container">
-      <%= df.label :cancer %>
-      <%= df.select :cancer_id,
-        @cancers.pluck(:name, :id) %>
-    </div>
+<div class="user-edit">
+  <%= form_for @user do |f| %>
+    <div class="user-diagnosis-edit">
+      <h4>Diagnosis</h4>
+      <%= f.fields_for @user.diagnosis || @user.build_diagnosis do |df| %>
+        <div class="field-container">
+          <%= df.label :cancer %>
+          <%= df.select :cancer_id,
+            @cancers.pluck(:name, :id) %>
+        </div>
 
-    <div class="field-container">
-      <%= df.label :stage %>
-      <%= df.number_field :stage, max: 4, min: 1, step: 1 %>
-    </div>
+        <div class="field-container">
+          <%= df.label :stage %>
+          <%= df.number_field :stage, max: 4, min: 1, step: 1 %>
+        </div>
 
-    <div class="field-container">
-      <%= df.label :diagnosed_at %>
-      <%= df.date_select :diagnosed_at, 
-        {order: [:month, :day, :year], 
-         start_year: Date.today.year, 
-         end_year: @user.birthdate.year} %>
-    </div>
-  <% end %>
-  <%= f.submit %>
-<% end %>
+        <div class="field-container">
+          <%= df.label :diagnosed_at %>
+          <%= df.date_select :diagnosed_at, 
+            {order: [:month, :day, :year], 
+             start_year: Date.today.year, 
+             end_year: @user.birthdate.year} %>
+         </div>
+       <% end %>
+     </div>
+
+     <div class="field-container">
+       <%= f.check_box :invisible %>
+       <%= f.label :invisible %>
+       <span class="faded-description">
+         When invisible, only friends can see any info about you.
+       </span>
+     </div>
+     <%= f.submit %>
+   <% end %>
+ </div>
