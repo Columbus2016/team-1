@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   resources :users, except: [:create, :new]
 
   resources :cancers
+
+  resources :diagnosis
+
 end

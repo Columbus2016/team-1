@@ -43,15 +43,19 @@ class ApplicationPolicy
   protected
 
   def user_admin?
-    @user.authority == "admin"
+    @user.try(:authority) == "admin"
   end
 
   def user_mod?
-    @user.authority == "moderator"
+    @user.try(:authority) == "moderator"
   end
 
   def user_researcher?
-    @user.authority == "researcher"
+    @user.try(:authority) == "researcher"
+  end
+
+  def user_logged_in?
+    ! @user.nil?
   end
 
   class Scope
