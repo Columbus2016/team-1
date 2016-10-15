@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   enum gender: [:male, :female, :other]
+  enum authority: [:user, :researcher, :moderator, :admin]
 end
