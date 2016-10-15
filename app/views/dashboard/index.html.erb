@@ -1,0 +1,15 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js">
+</script>
+<%= form_tag("/dashboard", {method: :get, id: "dashboard_form"}) do %>
+  <%= render 'shared/filter_form' %>
+<% end %>
+<div class="chart-outer">
+  <div class="chart-container">
+    <canvas id="typePie" width="400px" height="400px" class="data-canvas">
+    </canvas>
+  </div>
+
+  <div class="chart-container">
+    <canvas id="dayPostLine" class="data-canvas"></canvas>
+  </div>
+</div>

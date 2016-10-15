@@ -1,0 +1,15 @@
+.data-canvas {
+  width: 400px;
+  height: 400px;
+}
+
+.chart-container {
+  height: auto;
+  width: 40vw;
+}
+
+.chart-outer {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}

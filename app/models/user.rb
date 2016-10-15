@@ -35,6 +35,7 @@ class User < ApplicationRecord
     end
 
     unless params[:age_start].blank?
+      puts "using my cancer"
       filter = filter.at_least_age(params[:age_start])
     end
 
@@ -42,8 +43,8 @@ class User < ApplicationRecord
       filter = filter.at_least_age(params[:age_end])
     end
     
-    unless params[:within_distance].blank?
-      filter = filter.within_distance(other.location)
+    unless params[:within_miles].blank?
+      filter = filter.within_miles(other.location, params[:within_miles].to_f)
     end
 
     return filter
@@ -65,7 +66,8 @@ class User < ApplicationRecord
           years)
   end
 
-  def self.within_distance(point, dist)
+  def self.within_miles(point, dist)
+    puts "point #{point} dist #{dist.inspect}"
     where("ST_DWithin(location, ?, ?)",point,dist * 1609.34)
   end
 
