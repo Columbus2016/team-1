@@ -1,1 +1,15 @@
-<%= render "form" %>
+<%= form_for @user do |f| %>
+  <h2>Diagnosis</h2>
+  <%= f.fields_for @user.diagnosis do |df| %>
+    <div class="field-container">
+      <%= df.label :cancer %>
+      <%= df.select :cancer_id,
+        @cancers.pluck(:name, :id) %>
+    </div>
+
+    <div class="field-container">
+      <%= df.label :stage %>
+      <%= df.number_field :stage, max: 4, min: 1, step: 1 %>
+    </div>
+  <% end %>
+<% end %>

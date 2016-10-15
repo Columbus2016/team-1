@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    if user_signed_in?
+      @users = User.all.by_filter(params, current_user)
+    else
+      @users = User.all
+    end
   end
 
   def new
@@ -13,6 +17,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @cancers = Cancer.all
   end
 
   def create
