@@ -8,5 +8,4 @@ RSpec.describe Cancer, type: :model do
       end.to raise_error(ActiveRecord::StatementInvalid)
     end
   end
-
 end
