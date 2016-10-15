@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+    :recoverable, :rememberable, :trackable, :validatable
 
   has_one :diagnosis
 
@@ -27,9 +27,47 @@ class User < ApplicationRecord
 
   before_save :convert_location
 
+  def self.by_filter(params, other)
+    filter = self
+    if params[:my_cancer]
+      filter = filter.with_cancer(other.cancer)
+    end
+
+    if params[:age_start]
+      filter = filter.at_least_age(params[:age_start])
+    end
+
+    if params[:age_end]
+      filter = filter.at_least_age(params[:age_end])
+    end
+    
+    if params[:within_distance]
+      filter = filter.within_distance(other.location)
+    end
+  end
+
+  def self.with_cancer(cancer)
+    filter = filter.joins(diagnosis: :cancer)
+        .references(diagnosis: :cancer)
+        .where(diagnoses: {cancer: other.cancer})
+
+  end
+
+  def self.at_least_age(years)
+    where("date_part('year', age(birthdate)) > ?",
+          years)
+  end
+
+  def self.at_most_age(years)
+    where("date_part('year', age(birthdate)) < ?",
+          years)
+  end
+
+  def self.within_distance(point, dist)
+    where("ST_DWithin(location, ?, ?)",point,dist * 1609.34)
+  end
 
   protected
-
 
   def convert_location
     return unless location_lat && location_long

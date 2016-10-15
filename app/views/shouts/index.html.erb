@@ -3,6 +3,12 @@
 <%# shout list, which does render @shouts %>
 <%= form_for Shout.new do |f| %>
   <%= f.label :body %>
+  <%= f.text_area :body %>
+
+  <%= f.submit %>
 <% end %>
 
 
+<ul class="shouts-list">
+  <%= render @shouts %>
+</ul>

@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+}
+
+.shout-item-color-0 {
+    background-color: #ff0066;
+}
+
+.shout-item-color-1 {
+    background-color: #ff80b3;
+}
+
+.shout-item-color-2 {
+    background-color: #ffcce0;
+}
+
+.shout-item-color-3 {
+    background-color: #ff99a6;
+}
+
+.shout-item {
+  width: 100%;
+}
+
+.shouts-list {
+display: flex;
+margin: auto;
+max-width: 700px;
+}

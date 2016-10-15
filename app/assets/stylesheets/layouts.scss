@@ -1,5 +1,32 @@
 $header-height:  40px;
 $footer-height: 60px;
+
+.container {
+  display: flex;
+  font-size: 24px;
+
+  div {
+    flex-grow: 1;
+    border-color: black;
+    border-style: solid;
+    border-right-width: 1px;
+    border-left-width: 0px;
+    text-align: center;
+    line-height: $footer-height;
+    &:first-of-type {
+      border-left-width: 1px;
+      border-right-width: 1px;
+    }
+    border-top: 0;
+    border-bottom: 0;
+    height: $footer-height;
+  }
+}
+
+#space-between {
+  justify-content: space-between;
+}
+
 #main-header {
   h1 {
     color: white;
@@ -28,5 +55,9 @@ $footer-height: 60px;
 
 #masthead {
   margin-top: $header-height;
+  margin-bottom: $footer-height;
+  overflow-y: auto;
   height: calc(100vh - #{$header-height} - #{$footer-height});
 }
+
+
