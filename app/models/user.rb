@@ -4,6 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_one :diagnosis
+
+  has_one :cancer,
+    through: :diagnosis
+
+  accepts_nested_attributes_for :diagnosis
+
   enum gender: [:male, :female, :other]
   enum authority: [:user, :researcher, :moderator, :admin]
 end
