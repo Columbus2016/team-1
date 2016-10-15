@@ -17,4 +17,8 @@ class User < ApplicationRecord
 
   enum gender: [:male, :female, :other]
   enum authority: [:user, :researcher, :moderator, :admin]
+
+  scope :visible, ->{ where(invisible: false) }
+  scope :invisible, -> { where(invisible: true) } 
+
 end
