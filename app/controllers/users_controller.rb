@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def index
     if user_signed_in?
-      @users = User.all.by_filter(params, current_user)
+      @users = User.visible.by_filter(params, current_user)
         .with_friendship_status_for(current_user)
     else
       @users = User.all

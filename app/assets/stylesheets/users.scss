@@ -30,3 +30,38 @@
   margin: 5px;
   padding: 10px;
 }
+
+.user-edit {
+  margin: auto;
+  width: 700px;
+
+  .faded-description {
+    color: #666;
+  }
+}
+
+.user-diagnosis-edit {
+  h4 {
+    margin: 0;
+  }
+  background-color: #eee;
+  padding: 10px;
+  margin: 20px 0;
+}
+
+.signup-form {
+  max-width: 700px;
+  margin: auto;
+}
+
+.login-form {
+  max-width: 700px;
+  margin: auto;
+}
+
+.devise-links {
+  max-width: 700px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}

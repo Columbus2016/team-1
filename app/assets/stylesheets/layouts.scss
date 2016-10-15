@@ -4,7 +4,6 @@ $footer-height: 60px;
 .container {
   display: flex;
   font-size: 24px;
-
   div {
     flex-grow: 1;
     border-color: black;
@@ -28,6 +27,8 @@ $footer-height: 60px;
 }
 
 #main-header {
+
+  padding: 0 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
