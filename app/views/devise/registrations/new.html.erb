@@ -22,8 +22,8 @@
         </div>
 
         <div class="form-group">
-          <%= f.label :birthday %>
-          <%= f.date_select :birthday, {order: [:month, :day, :year], prompt: { day: 'Select day', month: 'Select month', year: 'Select year' }, start_year: Date.today.year, end_year: Date.today.year - 100} %>
+          <%= f.label :birthdate %>
+          <%= f.date_select :birthdate, {order: [:month, :day, :year], prompt: { day: 'Select day', month: 'Select month', year: 'Select year' }, start_year: Date.today.year, end_year: Date.today.year - 100} %>
         </div>
 
         <div class="form-group">
