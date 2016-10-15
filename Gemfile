@@ -5,8 +5,13 @@ source 'http://rubygems.org'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # use postgres
 gem 'pg'
+
+gem 'activerecord-postgis-adapter'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
+gem 'bootstrap-sass', '~> 3.3.6'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -33,6 +38,10 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+
+  gem 'rspec-rails'
+  
+  gem 'factory_girl'
 end
 
 group :development do
@@ -43,6 +52,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
