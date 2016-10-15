@@ -10,12 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161015064238) do
+ActiveRecord::Schema.define(version: 20161015102032) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "postgis"
-  enable_extension "postgis_topology"
 
   create_table "cancers", force: :cascade do |t|
     t.string   "name",       null: false
@@ -42,6 +41,13 @@ ActiveRecord::Schema.define(version: 20161015064238) do
     t.integer  "stage",        default: 1, null: false
     t.index ["cancer_id"], name: "index_diagnoses_on_cancer_id", using: :btree
     t.index ["user_id"], name: "index_diagnoses_on_user_id", using: :btree
+  end
+
+  create_table "friendships", force: :cascade do |t|
+    t.integer  "sender_id",   null: false
+    t.integer  "reciever_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "shouts", force: :cascade do |t|
