@@ -17,6 +17,7 @@ class DashboardQuery
       .where(user_id: @users)
       .group("date_trunc('month',shouts.created_at)")
       .select("date_trunc('month', shouts.created_at) as month,COUNT(*) as count")
+      .order("date_trunc('month', shouts.created_at)")
       .to_a.map(&:attributes)
       .map{|a| [a["month"], a["count"]]}
   end
