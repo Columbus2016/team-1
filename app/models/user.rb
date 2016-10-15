@@ -27,11 +27,18 @@ class User < ApplicationRecord
 
   before_save :convert_location
 
+  def self.by_filter(params, other)
+  end
+
+  def self.within_distance(point, dist)
+    where("ST_DWithin(location, ?, ?)",point,dist * 1609.34)
+  end
 
   protected
 
   def convert_location
     return unless location_lat && location_long
+    puts "Location_lat #{location_lat} and long #[location_long}"
     self.location = RGeo::ActiveRecord::SpatialFactoryStore.instance.default.point(location_long, location_lat)
   end
 end
