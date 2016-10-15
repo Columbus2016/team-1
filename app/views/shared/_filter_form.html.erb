@@ -12,10 +12,11 @@
     <%= number_field_tag(:distance_in_miles) %>
   </div>
   <div>
-    <%= check_box_tag(:my_cancer) %>
     <%= label_tag(:my_cancer) %>
+    <%= check_box_tag(:my_cancer) %>
   </div>
   <div>
-    <%= f.select :stage, ['Stage 1', 'Stage 2', 'Stage 3', 'Stage 4']%>
+    <%= label_tag(:stage) %>
+    <%= select_tag :stage, options_for_select((1..4).map{|e| [e, e]}) %> 
   </div>
 </div>
