@@ -19,5 +19,14 @@
 .user-shouts {
   list-style-type: none;
   display: flex;
+  margin: 0;
+  padding: 20px;
   flex-direction: column;
+}
+
+.user-shout {
+  border: 1px solid #333;
+  border-radius: 3px;
+  margin: 5px;
+  padding: 10px;
 }

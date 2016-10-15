@@ -1,6 +1,9 @@
- <li class="shout-item shout-item-color-<%= shout.id % 4 %>">
-    <h1><%= shout.user.handle %></h1>
-    <div class="shout-message">
-      <%= shout.body %>
-   </div>
+<li class="shout-item shout-item-color-<%= shout.id % 4 %>">
+  <h2><%= link_to shout.user.handle, shout.user %></h2>
+  <div class="shout-message">
+    <%= shout.body %>
+  </div>
+  <div class="shout-bottom">
+    <%= time_ago_in_words shout.created_at %>
+  </div>
 </li>

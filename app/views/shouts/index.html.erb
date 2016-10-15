@@ -1,9 +1,8 @@
-<h1>Shout Feed</h1>
-<%# Button that does link_to("Create a show", new_shout_path) %>
-<%# shout list, which does render @shouts %>
 <%= form_tag(shouts_path, method: :get) do %>
   <%= render 'shared/filter_form' %>
 <% end %>
+
+<h1 class="center-header">Posts</h1>
 
 <%= form_for Shout.new do |f| %>
   <%= f.label :body %>

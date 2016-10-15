@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   resources :comments, only: [:create, :edit, :update]
 
   get "chat_mockup", to: "static_stuff#chat_mockup"
+  get "resources", to: "static_stuff#resources"
+
 end
