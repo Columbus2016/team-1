@@ -1,5 +1,10 @@
 class ShoutsController < ApplicationController
   before_action :load_shout, except: [:new, :index, :create]
+
+  def index
+    @shouts = Shout.all
+  end
+
   def new
   end
 
