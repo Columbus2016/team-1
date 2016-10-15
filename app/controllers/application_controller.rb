@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
 
   include Pundit
 
-  def after_sign_up_path_for(resource)
-    edit_users_path(resource)
+  def after_sign_in_path_for(resource)
+    edit_user_path(resource)
   end
 
   def configure_permitted_parameters
