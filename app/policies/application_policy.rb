@@ -1,6 +1,8 @@
 class ApplicationPolicy
   attr_reader :user, :record
 
+  Actions = %w(index? show? new? create? update? edit? destroy?)
+
   def initialize(user, record)
     @user = user
     @record = record
