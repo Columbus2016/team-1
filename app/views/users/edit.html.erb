@@ -11,7 +11,14 @@
       <%= df.label :stage %>
       <%= df.number_field :stage, max: 4, min: 1, step: 1 %>
     </div>
-  <% end %>
 
+    <div class="field-container">
+      <%= df.label :diagnosed_at %>
+      <%= df.date_select :diagnosed_at, 
+        {order: [:month, :day, :year], 
+         start_year: Date.today.year, 
+         end_year: @user.birthdate.year} %>
+    </div>
+  <% end %>
   <%= f.submit %>
 <% end %>
