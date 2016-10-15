@@ -30,8 +30,10 @@ class User < ApplicationRecord
 
   protected
 
+
   def convert_location
     return unless location_lat && location_long
+    puts "Location_lat #{location_lat} and long #[location_long}"
     self.location = RGeo::ActiveRecord::SpatialFactoryStore.instance.default.point(location_long, location_lat)
   end
 end
