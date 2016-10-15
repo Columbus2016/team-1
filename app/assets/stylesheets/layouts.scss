@@ -28,10 +28,19 @@ $footer-height: 60px;
 }
 
 #main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+
   h1 {
+
+    margin: none;
     color: white;
-    font-size: 15px;
+    font-size: 25px;
+    vertical-align: middle;
   }
+
   height: $header-height;
   position: fixed;
   width: 100vw;

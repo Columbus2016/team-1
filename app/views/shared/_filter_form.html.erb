@@ -1,4 +1,6 @@
 <div class="fields-section">
+
+<div class="fields-section filter-section">
   <div>
     <%= label_tag :minimum_age %>
     <%= number_field_tag(:age_start, params[:age_start]) %>
@@ -13,7 +15,9 @@
   </div>
   <div>
     <%= label_tag(:my_cancer) %>
-    <%= check_box_tag(:my_cancer, params[:my_cancer]) %>
+    <%= check_box_tag(:my_cancer,
+                      params[:my_cancer].blank? ? "no" : "yes",
+                      !params[:my_cancer].blank?) %>
   </div>
   <div>
     <%= label_tag(:stage) %>

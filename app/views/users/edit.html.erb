@@ -1,6 +1,6 @@
 <%= form_for @user do |f| %>
   <h2>Diagnosis</h2>
-  <%= f.fields_for @user.diagnosis do |df| %>
+  <%= f.fields_for @user.diagnosis || @user.build_diagnosis do |df| %>
     <div class="field-container">
       <%= df.label :cancer %>
       <%= df.select :cancer_id,
@@ -12,4 +12,6 @@
       <%= df.number_field :stage, max: 4, min: 1, step: 1 %>
     </div>
   <% end %>
+
+  <%= f.submit %>
 <% end %>

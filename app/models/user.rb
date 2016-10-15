@@ -69,6 +69,12 @@ class User < ApplicationRecord
     where("ST_DWithin(location, ?, ?)",point,dist * 1609.34)
   end
 
+  def self.with_friendship_status_for(other)
+    joins("LEFT OUTER JOIN friendships ON friendships.receiver_id = users.id")
+      .group("users.id, friendships.id")
+      .select("users.*, friendships.id AS friendship_id")
+  end
+
   protected
 
   def convert_location
