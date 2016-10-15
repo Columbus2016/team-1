@@ -19,7 +19,7 @@
   </div>
   <div>
     <%= label_tag(:stage) %>
-    <%= select_tag :stage, options_for_select((1..4).map{|e| [e, e]}) %> 
+    <%= number_field_tag(:stage, params[:stage], max: 4, min: 1, step: 0) %>
   </div>
   <%= submit_tag("Apply Filter") %>
 </div>
