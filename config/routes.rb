@@ -7,5 +7,5 @@ Rails.application.routes.draw do
 
   resources :shouts
 
-  resources :comments
+  resources :comments, only: [:create, :edit, :update]
 end
