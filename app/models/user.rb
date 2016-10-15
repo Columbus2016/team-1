@@ -11,6 +11,8 @@ class User < ApplicationRecord
 
   has_many :shouts
 
+  has_many :comments
+
   accepts_nested_attributes_for :diagnosis
 
   enum gender: [:male, :female, :other]
