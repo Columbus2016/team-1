@@ -1,5 +1,21 @@
 $header-height:  40px;
 $footer-height: 60px;
+
+.container {
+    display: flex;
+    font-size: 24px;
+    margin-top: 0.5em;
+    
+    div {
+        border: 2px solid black;
+        padding: 5px 5px 5px 5px;
+    }
+}
+
+#space-between {
+    justify-content: space-between;
+}
+
 #main-header {
   h1 {
     color: white;
@@ -30,3 +46,5 @@ $footer-height: 60px;
   margin-top: $header-height;
   height: calc(100vh - #{$header-height} - #{$footer-height});
 }
+
+
