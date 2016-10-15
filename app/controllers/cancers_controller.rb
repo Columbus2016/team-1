@@ -1,5 +1,5 @@
 class CancersController < ApplicationController
-  before_action :load_cancer, except: [:index, :new]
+  before_action :load_cancer, except: [:index, :new, :create]
 
   def show
   end
